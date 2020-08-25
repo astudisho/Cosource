@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using ScrapySharp.Extensions;
@@ -24,6 +25,11 @@ namespace Cosource.Scrap
             return webPageTask.Html;
         }
 
+        public async Task<HtmlNodeCollection> GetNodesByXpath(HtmlNode html, string xpath)
+        {
+            var result = html.SelectNodes(xpath);
+            return result;
+        }
 
     }
 }
