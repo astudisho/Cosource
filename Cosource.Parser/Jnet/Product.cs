@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cosource.Parser.Jnet
 {
-    public class Product
+    public class ProductParser
     {
 
     }
