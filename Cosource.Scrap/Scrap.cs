@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,6 +29,12 @@ namespace Cosource.Scrap
         public async Task<HtmlNodeCollection> GetNodesByXpath(HtmlNode html, string xpath)
         {
             var result = html.SelectNodes(xpath);
+            return result;
+        }
+
+        public IList<HtmlNode> GetNodesByCss(HtmlNode html, string cssSelector)
+        {
+            var result = html.CssSelect(cssSelector).ToList();
             return result;
         }
 

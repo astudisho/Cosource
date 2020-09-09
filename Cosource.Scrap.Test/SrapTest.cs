@@ -52,6 +52,16 @@ namespace Cosource.Scrap.Test
             Assert.True(result.Any());
         }
 
+        [Theory]
+        [InlineData("https://juliusmarlow.com.au/shoes/slip-on-shoes/haul-brown?utm_source=&utm_medium=CommissionFactory&utm_content=Data+Feed+Link&utm_campaign=Julius+Marlow&cfclick=0f593b491a234d429f134b539f90c2c5")]
+        public async Task Should_Get_Supplier_Web_Page(string url)
+        {
+            var xpath = "[class=price]";
+            var node = await GetHtml(url);
+            var result = _scrap.GetNodesByCss(node, xpath);
+
+        }
+
         private async Task<HtmlNode> GetHtml(string urlString)
         {
             var result = await _scrap.GetHtml(urlString);
